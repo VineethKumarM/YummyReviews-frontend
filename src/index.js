@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import 'mapbox-gl/dist/mapbox-gl.css';
 // import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";

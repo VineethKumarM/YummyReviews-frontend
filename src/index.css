@@ -105,8 +105,77 @@ button {
 	max-height: 300px;
 }
 
-.icons {
-	color: black;
+.icon{
+	/* color: black; */
 	height: 15px;
 	width: 15px;
+	cursor: pointer;
+
 }
+
+
+.hide {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.map-container {
+	width: 45vw;
+	height: 48vh;
+	margin: 0;
+	padding: 0;
+	border: 2px dashed rgba(0, 0, 0, 0.392);
+  }
+
+.deactive {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	display: flex;
+	opacity: 0.2;
+	top: 0;
+	left: 0;
+	background-color: grey;
+}
+
+.container {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 50vw;
+	height: 54vh;
+	top: 20vh;
+	left: 27vw;
+	justify-content: center;
+	align-items: center;
+	padding: 4px;
+	background-color: white;
+	border: 2px solid rgb(182, 182, 182);
+	border-radius: 4px;
+	opacity: 1 !important;
+	transition: opacity 0.5s visiblity 0.5s transfrom 0.5s;
+	transform: scale(0.8);
+}
+
+.modal {
+	width: 100%;
+	height: 100%;
+	/* background-color: rgb(225, 225, 25); */
+	margin: 2px;
+	position: relative;
+	display: flex;
+}
+
+.modal .close {
+	 position: absolute;
+	top: 2px;
+	right: 0px;
+	background-image: url('../src/close.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+
+}
+  

@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
-import Posts from "../Posts";
-import { useParams} from "react-router-dom";
-import { UserContext } from "../../App";
+import Posts from "../components/Posts";
+import { useParams,Link} from "react-router-dom";
+import { UserContext } from "../App";
 import axios from "axios";
 import { useEffect } from "react";
 const Usr = () => {
@@ -9,16 +9,18 @@ const Usr = () => {
 	// const {state,dispatch} = useContext(UserContext)
 	const {name} = useParams()
 	const [applications,setapplications] = React.useState(null)
+	const auth = "Bearer " + localStorage.getItem("jwt"); 
+
 	const [user,setuser] =React.useState(null) 
 	useEffect(()=> {
 		fetch(`/usr/${name}`, {
 			method: "get",
 			headers: {
-				"Content-Type": "application/json",
+				// "Content-Type": "application/json",
 			},
 		}).then(res=>res.json())
 		.then((response) =>{
-			console.log(response);
+			// console.log(response);
 			setuser(response.savedUser)
 			setapplications((response.foods))
 		})
@@ -36,26 +38,22 @@ const Usr = () => {
 		let pos = Array.from(applications)
 
 		return (
-			<div
-				className="d-flex 
-			main-profile"
-			>
+			<div className="d-flex main-profile" >
 				<div className="p-2 left flex-fill bd-highlight">
 					<div className="card" style={{ padding: "20px" }}>
 						<img
 							style={{
 								borderRadius: "50%",
-								maxWidth: "200px",
-								maxHeight: "200px",
+								maxWidth: "150px",
+								maxHeight: "150px",
 							}}
-							src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+							src={user.photo}
 							alt=""
 						/>
-						<h6>{user.name.toUpperCase()}</h6>
+						<h5>{user.name.toUpperCase()}</h5>
 						<div className="inContent" style={{ textAlign: "left" }}>
-							<h6>Wishlist</h6>
-							<h6>Favourites</h6>
-							<h6>followers</h6>
+						<h6>Favourited {user.favourites.length>0? user.favourites.length: "no"} posts</h6>
+
 						</div>
 					</div>
 				</div>
@@ -75,15 +73,15 @@ const Usr = () => {
 					>
 						<h4>Likes</h4>
 						<div className="inContent" style={{ textAlign: "left" }}>
-							<h6>
-								<a href="/">post1</a>
-							</h6>
-							<h6>
-								<a href="/">post1</a>
-							</h6>
-							<h6>
-								<a href="/">post1</a>
-							</h6>
+							{
+
+								auth ? user.likes.map(p =>
+									console.log(user.likes)
+									// <h6> <Link to={"/post/" + p._id}>{p.title}</Link> </h6>
+								) : <h6>Liked {user.likes.length>0? user.likes.length: "no"} posts</h6>
+
+								
+							}
 						</div>
 					</div>
 				</div>

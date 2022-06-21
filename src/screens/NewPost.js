@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 const NewPost = () => {
 	const [title, setTitle] = useState("");
 	const [body, setbody] = useState("");
+	const [location, setlocation] = useState("");
+	const [hotel, sethotel] = useState("");
 	const [image, setimage] = useState("");
 	const history = useNavigate();
 	const PostData = () => {
-		if (!title || !body || !image)
+		if (!title || !body || !image || !location || !hotel)
 			return alert("all fields are compulsory");
 		// console.log(title, body, image);
 		const user = localStorage.getItem("user");
@@ -14,6 +16,8 @@ const NewPost = () => {
 		formData.append("title", title);
 		formData.append("body", body);
 		formData.append("photo", image);
+		formData.append("hotel", hotel);
+		formData.append("location", location);
 		const auth = "Bearer " + localStorage.getItem("jwt"); 
 		fetch("/newPost", {
 			method: "post",
@@ -89,6 +93,32 @@ const NewPost = () => {
 						placeholder="description"
 						value={body}
 						onChange={(e) => setbody(e.target.value)}
+					/>
+				</label>
+			</p>
+			<p className="card-text">
+				<label htmlFor="">
+					Restaurant:
+					<input
+						type="text"
+						id="hotel"
+						name="hotel"
+						placeholder="hotel"
+						value={hotel}
+						onChange={(e) => sethotel(e.target.value)}
+					/>
+				</label>
+			</p>
+			<p className="card-text">
+				<label htmlFor="">
+					Location:
+					<input
+						type="text"
+						id="location"
+						name="location"
+						placeholder="location"
+						value={location}
+						onChange={(e) => setlocation(e.target.value)}
 					/>
 				</label>
 			</p>

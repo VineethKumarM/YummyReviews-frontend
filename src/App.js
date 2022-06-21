@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, createContext, useReducer ,useContext} from "react";
+import { useState, useEffect,useRef, createContext, useReducer ,useContext} from "react";
 import {
 	BrowserRouter as Router,
 	Route,
@@ -7,12 +7,13 @@ import {
 	useNavigate,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/screens/Home";
-import Profile from "./components/screens/profile";
-import Login from "./components/screens/login";
-import Signup from "./components/screens/signup";
-import NewPost from "./components/screens/NewPost";
-import Usr from "./components/screens/usr";
+import Home from "./screens/Home";
+import Profile from "./screens/profile";
+import Post from "./screens/Post";
+import Login from "./screens/login";
+import Signup from "./screens/signup";
+import NewPost from "./screens/NewPost";
+import Usr from "./screens/usr";
 import { reducer, initialState } from "./reducers/userReducer";
 // import { useReducer } from "";
 // import
@@ -37,6 +38,7 @@ const Routing = () => {
 			<Route exact path="/" element={<Home />} />
 			<Route exact path="/login" element={<Login />} />
 			<Route exact path="/profile" element={<Profile />} />
+			<Route exact path="/post/:id" element={<Post />} />
 			<Route exact path="/signup" element={<Signup />} />
 			<Route exact path="/newPost" element={<NewPost />} />
 			<Route path="/profile/:name" element={<Usr />} />

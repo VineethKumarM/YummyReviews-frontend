@@ -44,7 +44,7 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<h2>
-				<Link to="/"> Food Review's</Link>{" "}
+				<Link to="/"> YummyReviews</Link>{" "}
 			</h2>
 			<div className="navlinks">{renderList()}</div>
 		</nav>
