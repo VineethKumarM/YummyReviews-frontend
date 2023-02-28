@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-var server= process.env.SERVER_URI;
 import { UserContext } from "../App";
+var server= process.env.SERVER_URI;
 const Login = () => {
 	const history = useNavigate();
 	const [email, setemail] = useState("");

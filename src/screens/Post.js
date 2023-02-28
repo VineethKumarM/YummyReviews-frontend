@@ -1,8 +1,8 @@
 import React from "react";
 import {  useParams } from "react-router-dom";
-var server= process.env.SERVER_URI;
 import axios from "axios";
 import Posts from "../components/Posts";
+var server= process.env.SERVER_URI;
 const Post = () => {
 	React.useEffect(() => {
 			fetchDetails()
