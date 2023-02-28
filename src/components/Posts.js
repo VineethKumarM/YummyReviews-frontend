@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import  '@fortawesome/fontawesome-free-solid'
 import { UserContext } from "../App";
 import Mapview from "./Mapview";
+var server= process.env.SERVER_URI;
 
 export default function Posts(data) {
 
@@ -30,7 +31,7 @@ export default function Posts(data) {
 	const favpost = async (id) => {
 		const jwt = localStorage.getItem("jwt");
 		if(!jwt) history('/login');
-		let res  = await fetch('/favpost', {
+		let res  = await fetch(server+'/favpost', {
 			method:"put",
 			headers: {
 				"Content-Type":"application/json",
@@ -48,7 +49,7 @@ export default function Posts(data) {
 		const jwt = localStorage.getItem("jwt");
 
 		if(!jwt) history('/login');
-		let res  = await  fetch('/like', {
+		let res  = await  fetch(server+'/like', {
 			method:"put",
 			headers: {
 				"Content-Type":"application/json",
@@ -66,7 +67,7 @@ export default function Posts(data) {
 	const unlikepost = async (id) => {
 		const jwt = localStorage.getItem("jwt");
 		if(!jwt) history('/login');
-		let res  = await fetch('/unlike', {
+		let res  = await fetch(server+'/unlike', {
 			method:"put",
 			headers: {
 				"Content-Type":"application/json",
@@ -81,7 +82,7 @@ export default function Posts(data) {
 	}
 
 	const deletePost = async (postid)=>{
-        let res  = await fetch(`/delPost/${postid}`,{
+        let res  = await fetch(server+`/delPost/${postid}`,{
             method:"delete",
             headers:{
                 Authorization:"Bearer "+localStorage.getItem("jwt")

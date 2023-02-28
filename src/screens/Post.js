@@ -1,5 +1,6 @@
 import React from "react";
 import {  useParams } from "react-router-dom";
+var server= process.env.SERVER_URI;
 import axios from "axios";
 import Posts from "../components/Posts";
 const Post = () => {
@@ -11,7 +12,7 @@ const Post = () => {
 	const [postData,setpostData] = React.useState(null)
 	const auth = "Bearer " + localStorage.getItem("jwt"); 
 	const fetchDetails = async() => {
-		const response = await axios.get(`/post/${id}`, {
+		const response = await axios.get(server+`/post/${id}`, {
 			headers: {
 				"Authorization": auth,
 			},

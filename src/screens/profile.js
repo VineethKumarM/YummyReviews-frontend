@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import Posts from "../components/Posts";
 import { Link } from "react-router-dom";
+var server= process.env.SERVER_URI;
 
 const Profile = () => {
 	React.useEffect(() => {
@@ -13,7 +14,7 @@ const Profile = () => {
 	const [user,setuser] =React.useState(null)
 	const auth = "Bearer " + localStorage.getItem("jwt"); 
 	const fetchDetails = async() => {
-		const response = await axios.get('/profile', {
+		const response = await axios.get(server+'/profile', {
 			headers: {
 				"Authorization": auth,
 			},

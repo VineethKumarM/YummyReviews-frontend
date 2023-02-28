@@ -1,10 +1,11 @@
 import React from "react";
 import Posts from "../components/Posts";
+var server= process.env.SERVER_URI;
 const Home = () => {
 
 	React.useEffect(() => {
 
-		fetch('/allposts', {
+		fetch(server+'/allposts', {
 			method:"get",
 			headers: {
 				"Authorization": auth

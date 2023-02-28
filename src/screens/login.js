@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+var server= process.env.SERVER_URI;
 import { UserContext } from "../App";
 const Login = () => {
 	const history = useNavigate();
@@ -19,7 +20,7 @@ const Login = () => {
 			return;
 		}
 		try {
-			let res = await fetch("/login", {
+			let res = await fetch(server+"/login", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+var server= process.env.SERVER_URI;
 
 
 const Signup = () => {
@@ -20,7 +21,7 @@ const Signup = () => {
 			return;
 		}
 		try {
-			let res = await fetch("/signup", {
+			let res = await fetch(server+"/signup", {
 				method: "post",
 				headers: {
 					"Content-Type": "application/json",

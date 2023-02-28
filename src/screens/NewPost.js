@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+var server= process.env.SERVER_URI;
 const NewPost = () => {
 	const [title, setTitle] = useState("");
 	const [body, setbody] = useState("");
@@ -36,7 +37,7 @@ const NewPost = () => {
 		})
 		
 		
-		fetch("/newPost", {
+		fetch(server+"/newPost", {
 			method: "post",
 			headers: {
 				"Authorization": auth,

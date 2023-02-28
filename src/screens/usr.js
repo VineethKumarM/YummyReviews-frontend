@@ -1,7 +1,10 @@
+//user pprofile page
 import React from "react";
 import Posts from "../components/Posts";
 import { useParams} from "react-router-dom";
 import { useEffect } from "react";
+var server= process.env.SERVER_URI;
+
 const Usr = () => {
 
 	const {name} = useParams()
@@ -10,7 +13,7 @@ const Usr = () => {
 
 	const [user,setuser] =React.useState(null) 
 	useEffect(()=> {
-		fetch(`/usr/${name}`, {
+		fetch(server+`/usr/${name}`, {
 			method: "get",
 			headers: {
 				// "Content-Type": "application/json",
