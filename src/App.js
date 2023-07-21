@@ -29,9 +29,7 @@ const Routing = () => {
 		if (user) {
 			dispatch({type:"USER",payload:user})
 			history("/");
-		} else {
-			history("/login");
-		}
+		} 
 	}, []);
 	return (
 		<Routes>
