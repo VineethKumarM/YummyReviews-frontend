@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function PostCard(post) {
-	// console.log("hiii");
-	// console.log(post);
+
 		return (
 			<div className="card home-card">
 				<div className="top" style={{ textAlign: "left" }}>

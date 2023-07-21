@@ -6,7 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import  '@fortawesome/fontawesome-free-solid'
 import { UserContext } from "../App";
 import Mapview from "./Mapview";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 
 export default function Posts(data) {
 
@@ -41,7 +41,7 @@ export default function Posts(data) {
 				foodId:id,
 			})
 		})
-		console.log(res);
+		// console.log(res);
 	}
 
 	const likepost = async (id) => {
@@ -59,7 +59,7 @@ export default function Posts(data) {
 				foodId:id,
 			})
 		})
-		console.log(res);
+		// console.log(res);
 	
 	}
 	
@@ -77,7 +77,7 @@ export default function Posts(data) {
 				foodId:id,
 			})
 		})
-		console.log(res);
+		// console.log(res);
 		
 	}
 
@@ -89,7 +89,7 @@ export default function Posts(data) {
             }
         })
 		let result = await res.json()
-        console.log(result)
+        // console.log(result)
 
     }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 
 
 const Signup = () => {

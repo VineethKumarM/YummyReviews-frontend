@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 const NewPost = () => {
 	const [title, setTitle] = useState("");
 	const [body, setbody] = useState("");
@@ -26,13 +26,15 @@ const NewPost = () => {
 		.then(res => res.json())
 		.then (rdata =>  {
 			if(rdata.error) {
+                alert('Error')
 				console.log(rdata.error);
 			}
 			else
 				seturl(rdata.url)
-				console.log(url);
+				// console.log("image uploadede: ", url);
 		})
 		.catch((err) => {
+            alert("Error")
 				console.log("Image upload error", err);
 		})
 		
@@ -57,12 +59,12 @@ const NewPost = () => {
 			if (data.error) {
 				alert(data.error);
 			} else {
-				console.log(data);
+				// console.log(data);
 				history("/");
 			}
 		})
 		.catch((err) => {
-				console.log("server sent error", err);
+				console.log("server error", err);
 		})
 	
 		

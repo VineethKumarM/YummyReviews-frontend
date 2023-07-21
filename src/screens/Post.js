@@ -2,7 +2,7 @@ import React from "react";
 import {  useParams } from "react-router-dom";
 import axios from "axios";
 import Posts from "../components/Posts";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 const Post = () => {
 	React.useEffect(() => {
 			fetchDetails()
@@ -20,7 +20,7 @@ const Post = () => {
 		if(response){
 
 			setpostData((response.data.foods))
-			console.log(response,postData);
+			// console.log(response,postData);
 		}
 	}
 

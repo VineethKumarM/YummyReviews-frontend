@@ -3,7 +3,7 @@ import React from "react";
 import Posts from "../components/Posts";
 import { useParams} from "react-router-dom";
 import { useEffect } from "react";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 
 const Usr = () => {
 

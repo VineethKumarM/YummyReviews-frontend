@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import Posts from "../components/Posts";
 import { Link } from "react-router-dom";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 
 const Profile = () => {
 	React.useEffect(() => {

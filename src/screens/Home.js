@@ -1,6 +1,6 @@
 import React from "react";
 import Posts from "../components/Posts";
-var server= process.env.SERVER_URI;
+var server= process.env.REACT_APP_BACKEND_URI;
 const Home = () => {
 
 	React.useEffect(() => {
